@@ -1,0 +1,49 @@
+<mat-card class="upload-card portal-card">
+  <mat-card-header>
+    <mat-card-title>GHG Manual File Portal</mat-card-title>
+    <mat-card-subtitle>
+      Upload your file by dragging and dropping or clicking the button below
+    </mat-card-subtitle>
+  </mat-card-header>
+  
+  <mat-card-content>
+    <div 
+      class="drop-zone" 
+      [class.dragover]="dragOver"
+      (dragover)="onDragOver($event)" 
+      (dragleave)="onDragLeave($event)"
+      (drop)="onDrop($event)"
+    >
+      <mat-icon class="upload-icon">cloud_upload</mat-icon>
+      <p class="drop-text">Drag and drop file here</p>
+      <p class="or-text">- OR -</p>
+      <input 
+        type="file" 
+        #fileInput 
+        class="file-input" 
+        (change)="onFileSelected($event)"
+        hidden
+      >
+      <button 
+        mat-raised-button 
+        color="primary" 
+        (click)="fileInput.click()"
+      >
+        Select File
+      </button>
+      
+      <div *ngIf="fileName" class="file-info">
+        <p>Selected file: <strong>{{ fileName }}</strong></p>
+      </div>
+    </div>
+    
+    <!-- File Content Display Section -->
+    <div *ngIf="isUploaded && fileContent" class="file-content-container">
+      <mat-divider></mat-divider>
+      <h3>File Content:</h3>
+      <div class="file-content">
+        <pre>{{ fileContent }}</pre>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>
