@@ -1,8 +1,11 @@
 .upload-card {
   max-width: 650px; // Increased width
+  width: 100%; // Ensure it takes full width up to max-width
   margin: 1.5rem auto;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
+  display: flex;
+  flex-direction: column;
 }
 
 mat-card-header {
@@ -25,15 +28,21 @@ mat-card-subtitle {
 
 mat-card-content {
   padding: 24px;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  width: 100%;
 }
 
 .drop-zone {
   display: flex;
-  flex-direction: column; // Changed back to column
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 120px; // Keeping the shorter height
+  min-height: 120px;
   width: 100%;
+  box-sizing: border-box;
+  margin: 0 auto;
   border: 2px dashed var(--purolator-blue);
   border-radius: 8px;
   background-color: #f8f9fa;
@@ -84,7 +93,11 @@ button[mat-raised-button] {
 /* Styles for the file content display */
 .file-content-container {
   margin-top: 30px;
-  padding-top: 20px;
+  padding: 20px;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
 }
 
 .file-content-container h3 {
@@ -100,6 +113,8 @@ button[mat-raised-button] {
   padding: 15px;
   max-height: 400px;
   overflow: auto;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .file-content pre {

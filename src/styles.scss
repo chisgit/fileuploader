@@ -8,7 +8,7 @@ html {
       theme-type: light,
     ),
     typography: Roboto,
-    density: 0,
+    density: -2, // Apply more compact density globally
   ));
 }
 
@@ -29,18 +29,30 @@ body {
 }
 
 .container {
-  max-width: 1200px;
+  max-width: 700px; // Reduced from 1200px
   margin: 0 auto;
-  padding: 20px;
+  padding: 12px; // Reduced from 20px
 }
 
 .mat-toolbar.main-header {
-  background-color: var(--purolator-blue); /* Purolator blue */
+  background-color: var(--purolator-blue);
   color: white;
+  height: 56px; // Adding explicit height for consistency
 }
 
 .portal-card {
-  margin: 20px 0;
+  margin: 12px 0; // Reduced from 20px
+  border-radius: 6px; // Smaller border radius
+}
+
+// Adjust card headers to be more compact
+.mat-mdc-card-header {
+  padding: 12px !important; // More compact padding
+}
+
+// Adjust card content to be more compact
+.mat-mdc-card-content {
+  padding: 12px !important; // More compact padding
 }
 
 // Override Material primary color with Purolator blue
