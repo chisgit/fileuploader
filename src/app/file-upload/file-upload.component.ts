@@ -1,24 +1,23 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
-import { MatButtonModule } from '@angular/material/button';
-import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatDividerModule } from '@angular/material/divider';
+import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-file-upload',
   standalone: true,
   imports: [
-    CommonModule, 
-    MatCardModule, 
-    MatIconModule, 
-    MatButtonModule,
-    MatSnackBarModule,
-    MatDividerModule
+    MatSnackBarModule, 
+    MatCardModule,
+    MatIconModule,
+    MatDividerModule,
+    NgIf
   ],
   templateUrl: './file-upload.component.html',
-  styleUrl: './file-upload.component.scss'
+  styleUrls: ['./file-upload.component.scss']
 })
 export class FileUploadComponent {
   fileName = '';

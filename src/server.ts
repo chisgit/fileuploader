@@ -40,13 +40,24 @@ app.use(
 /**
  * Handle all other requests by rendering the Angular application.
  */
+console.log('Starting Express server for SSR...');
 app.use('/**', (req, res, next) => {
+  console.log(`Handling request for: ${req.url}`);
   angularApp
     .handle(req)
-    .then((response) =>
-      response ? writeResponseToNodeResponse(response, res) : next(),
-    )
-    .catch(next);
+    .then((response) => {
+      if (response) {
+        console.log('SSR response generated successfully.');
+        writeResponseToNodeResponse(response, res);
+      } else {
+        console.log('No SSR response generated, passing to next handler.');
+        next();
+      }
+    })
+    .catch(err => {
+      console.error('Error during SSR handling:', err);
+      next(err);
+    });
 });
 
 /**

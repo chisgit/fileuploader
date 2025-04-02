@@ -5,8 +5,8 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './purolator-logo.component.html',
-  styleUrl: './purolator-logo.component.scss'
+  styleUrls: ['./purolator-logo.component.scss']
 })
 export class PurolatorLogoComponent {
-  logoPath = 'assets/logo.png';
+  logoPath: string = '../../assets/logo.png';
 }

@@ -7,10 +7,17 @@ import { PurolatorLogoComponent } from './purolator-logo/purolator-logo.componen
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, MatToolbarModule, FileUploadComponent, PurolatorLogoComponent],
+  imports: [
+    RouterOutlet,
+    MatToolbarModule,
+    FileUploadComponent,
+    PurolatorLogoComponent
+  ],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
   title = 'GHG Manual File Portal';
+
+  // Removed OktaAuth and PLATFORM_ID dependencies for debugging
 }
