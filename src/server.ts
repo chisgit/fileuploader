@@ -1,3 +1,5 @@
+process.removeAllListeners('warning');
+
 import {
   AngularNodeAppEngine,
   createNodeRequestHandler,
