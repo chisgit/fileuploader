@@ -1,59 +1,47 @@
-# PurolatorGhgPortal
+# Purolator GHG Portal
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.5.
+This is a Single Page Application (SPA) built with Angular 15 and Okta authentication.
 
-## Development server
+## Development Setup
 
-To start a local development server, run:
+1. Make sure you have Node.js installed (version 18.x or 20.x recommended)
+2. Install dependencies:
+   ```
+   npm install
+   ```
+3. Start the development server:
+   ```
+   npm start
+   ```
+4. Navigate to `http://localhost:4200/` in your browser
 
-```bash
-ng serve
+## Building for Production
+
+To build the application for production deployment:
+
+```
+npm run build --configuration=production
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+The build artifacts will be stored in the `dist/purolator-ghg-portal` directory.
 
-## Code scaffolding
+## Deployment to CloudFront + S3
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+This application is configured for deployment to AWS CloudFront and S3. Use the following steps:
 
-```bash
-ng generate component component-name
-```
+1. Build the application for production
+2. Upload the contents of the `dist/purolator-ghg-portal` directory to an S3 bucket
+3. Configure the S3 bucket for static website hosting using the provided `s3-website-config.json`
+4. Create a CloudFront distribution pointing to the S3 bucket
+5. Add the CloudFront function from `cloudfront-function.js` to handle SPA routing
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## Authentication
 
-```bash
-ng generate --help
-```
+This application uses Okta for authentication. The authentication configuration can be found in `src/app/okta-auth.config.ts`.
 
-## Building
+## Features
 
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+- SPA architecture for improved performance and client-side rendering
+- Okta authentication integration
+- File upload functionality with client-side processing
+- Responsive design using Angular Material UI

@@ -5,6 +5,10 @@ import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
 import { NgIf } from '@angular/common';
+import { MatButtonModule } from '@angular/material/button';
+import { OKTA_AUTH } from '@okta/okta-angular';
+import { OktaAuth } from '@okta/okta-auth-js';
+import { inject } from '@angular/core';
 
 @Component({
   selector: 'app-file-upload',
@@ -14,6 +18,7 @@ import { NgIf } from '@angular/common';
     MatCardModule,
     MatIconModule,
     MatDividerModule,
+    MatButtonModule,
     NgIf
   ],
   templateUrl: './file-upload.component.html',
@@ -24,6 +29,7 @@ export class FileUploadComponent {
   fileContent = '';
   isUploaded = false;
   dragOver = false;
+  private oktaAuth = inject(OKTA_AUTH);
 
   constructor(private snackBar: MatSnackBar) {}
 
